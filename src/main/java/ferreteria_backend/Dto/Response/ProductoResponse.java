@@ -6,6 +6,7 @@ public class ProductoResponse {
 
     private Long id;
     private String codigo;
+    private String codigoBarras;
     private String nombre;
     private String descripcion;
     private String marca;
@@ -122,5 +123,13 @@ public class ProductoResponse {
 
     public void setActivo(Boolean activo) {
         this.activo = activo;
+    }
+
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
+
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
     }
 }
