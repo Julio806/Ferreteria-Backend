@@ -71,59 +71,31 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        // ------------------------------------------
                         // LOGIN PÚBLICO
-                        // ------------------------------------------
-
                         .requestMatchers(
                                 "/api/auth/**"
                         ).permitAll()
 
-                        // ------------------------------------------
                         // ADMINISTRADOR
-                        // ------------------------------------------
-
                         .requestMatchers(
                                 "/api/usuarios/**",
-                                "/api/roles/**"
+                                "/api/roles/**",
+                                "/api/compras/**",
+                                "/api/reportes/**"
                         ).hasRole("ADMIN")
 
-                        // ------------------------------------------
                         // ADMINISTRADOR Y VENDEDOR
-                        // ------------------------------------------
-
                         .requestMatchers(
                                 "/api/productos/**",
                                 "/api/categorias/**",
-                                "/api/ventas/**"
-                        ).hasAnyRole(
-                                "ADMIN",
-                                "VENDEDOR"
-                        )
-
-                        // ------------------------------------------
-                        // COMPRAS SOLO ADMIN
-                        // ------------------------------------------
-
-                        .requestMatchers(
-                                "/api/compras/**"
-                        ).hasRole("ADMIN")
-
-                        // ------------------------------------------
-                        // DASHBOARD
-                        // ------------------------------------------
-
-                        .requestMatchers(
+                                "/api/ventas/**",
                                 "/api/dashboard/**"
                         ).hasAnyRole(
                                 "ADMIN",
                                 "VENDEDOR"
                         )
 
-                        // ------------------------------------------
-                        // TODO LO DEMÁS
-                        // ------------------------------------------
-
+                        // RESTO DE ENDPOINTS
                         .anyRequest().authenticated()
                 )
 
