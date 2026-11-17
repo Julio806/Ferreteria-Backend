@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+// crea las tablas que conecta con bse
 @Entity
 @Table(
         name = "categorias",
