@@ -34,6 +34,11 @@ public class ProductoController {
         Producto producto = new Producto();
 
         producto.setCodigo(request.getCodigo());
+
+        producto.setCodigoBarras(
+                request.getCodigoBarras()
+        );
+
         producto.setNombre(request.getNombre());
         producto.setDescripcion(request.getDescripcion());
         producto.setMarca(request.getMarca());
@@ -88,6 +93,40 @@ public class ProductoController {
     }
 
     // ==========================================
+    // OBTENER POR CÓDIGO DE BARRAS
+    // ==========================================
+
+    @GetMapping("/codigo-barras/{codigoBarras}")
+    public ResponseEntity<ProductoResponse> obtenerPorCodigoBarras(
+            @PathVariable String codigoBarras
+    ) {
+
+        Producto producto =
+                productoService.obtenerPorCodigoBarras(codigoBarras);
+
+        return ResponseEntity.ok(
+                toResponse(producto)
+        );
+    }
+
+    // ==========================================
+    // OBTENER POR CÓDIGO INTERNO
+    // ==========================================
+
+    @GetMapping("/codigo/{codigo}")
+    public ResponseEntity<ProductoResponse> obtenerPorCodigo(
+            @PathVariable String codigo
+    ) {
+
+        Producto producto =
+                productoService.obtenerPorCodigo(codigo);
+
+        return ResponseEntity.ok(
+                toResponse(producto)
+        );
+    }
+
+    // ==========================================
     // OBTENER POR ID
     // ==========================================
 
@@ -98,23 +137,6 @@ public class ProductoController {
 
         Producto producto =
                 productoService.obtenerPorId(id);
-
-        return ResponseEntity.ok(
-                toResponse(producto)
-        );
-    }
-
-    // ==========================================
-    // OBTENER POR CÓDIGO
-    // ==========================================
-
-    @GetMapping("/codigo/{codigo}")
-    public ResponseEntity<ProductoResponse> obtenerPorCodigo(
-            @PathVariable String codigo
-    ) {
-
-        Producto producto =
-                productoService.obtenerPorCodigo(codigo);
 
         return ResponseEntity.ok(
                 toResponse(producto)
@@ -174,7 +196,7 @@ public class ProductoController {
     }
 
     // ==========================================
-    // ACTUALIZAR
+    // ACTUALIZAR PRODUCTO
     // ==========================================
 
     @PutMapping("/{id}")
@@ -186,6 +208,11 @@ public class ProductoController {
         Producto producto = new Producto();
 
         producto.setCodigo(request.getCodigo());
+
+        producto.setCodigoBarras(
+                request.getCodigoBarras()
+        );
+
         producto.setNombre(request.getNombre());
         producto.setDescripcion(request.getDescripcion());
         producto.setMarca(request.getMarca());
@@ -245,7 +272,7 @@ public class ProductoController {
     }
 
     // ==========================================
-    // ELIMINAR
+    // ELIMINAR PRODUCTO
     // ==========================================
 
     @DeleteMapping("/{id}")
@@ -270,16 +297,50 @@ public class ProductoController {
                 new ProductoResponse();
 
         response.setId(producto.getId());
-        response.setCodigo(producto.getCodigo());
-        response.setNombre(producto.getNombre());
-        response.setDescripcion(producto.getDescripcion());
-        response.setMarca(producto.getMarca());
-        response.setPrecioCompra(producto.getPrecioCompra());
-        response.setPrecioVenta(producto.getPrecioVenta());
-        response.setStock(producto.getStock());
-        response.setStockMinimo(producto.getStockMinimo());
-        response.setUnidadMedida(producto.getUnidadMedida());
-        response.setActivo(producto.getActivo());
+
+        response.setCodigo(
+                producto.getCodigo()
+        );
+
+        response.setCodigoBarras(
+                producto.getCodigoBarras()
+        );
+
+        response.setNombre(
+                producto.getNombre()
+        );
+
+        response.setDescripcion(
+                producto.getDescripcion()
+        );
+
+        response.setMarca(
+                producto.getMarca()
+        );
+
+        response.setPrecioCompra(
+                producto.getPrecioCompra()
+        );
+
+        response.setPrecioVenta(
+                producto.getPrecioVenta()
+        );
+
+        response.setStock(
+                producto.getStock()
+        );
+
+        response.setStockMinimo(
+                producto.getStockMinimo()
+        );
+
+        response.setUnidadMedida(
+                producto.getUnidadMedida()
+        );
+
+        response.setActivo(
+                producto.getActivo()
+        );
 
         if (producto.getCategoria() != null) {
 
