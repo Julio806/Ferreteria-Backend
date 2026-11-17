@@ -29,6 +29,9 @@ public class Producto {
     @Column(nullable = false, unique = true, length = 50)
     private String codigo;
 
+    @Column(unique = true, length = 100)
+    private String codigoBarras;
+
     @Column(nullable = false, length = 150)
     private String nombre;
 
