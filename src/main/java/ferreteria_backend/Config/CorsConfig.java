@@ -1,3 +1,4 @@
+
 package ferreteria_backend.Config;
 
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +13,9 @@ public class CorsConfig implements WebMvcConfigurer {
 
         registry.addMapping("/**")
                 .allowedOrigins(
-                        "http://localhost:4200"
+                        "http://localhost:4200",
+                        "https://ferreterajg.com",
+                        "https://www.ferreterajg.com"
                 )
                 .allowedMethods(
                         "GET",
