@@ -1,4 +1,3 @@
-
 package ferreteria_backend.Config;
 
 import org.springframework.context.annotation.Configuration;
