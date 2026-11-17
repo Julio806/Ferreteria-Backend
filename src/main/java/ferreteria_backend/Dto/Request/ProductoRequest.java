@@ -14,6 +14,12 @@ public class ProductoRequest {
     @Size(max = 50, message = "El código no puede superar los 50 caracteres")
     private String codigo;
 
+    @Size(
+            max = 100,
+            message = "El código de barras no puede superar los 100 caracteres"
+    )
+    private String codigoBarras;
+
     @NotBlank(message = "El nombre es obligatorio")
     @Size(max = 150, message = "El nombre no puede superar los 150 caracteres")
     private String nombre;
@@ -122,5 +128,12 @@ public class ProductoRequest {
 
     public void setCategoriaId(Long categoriaId) {
         this.categoriaId = categoriaId;
+    }
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
+
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
     }
 }
