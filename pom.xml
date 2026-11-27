@@ -47,6 +47,15 @@
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+
+		<!-- Apache POI: lectura y edición de Word y Excel -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.4.1</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
