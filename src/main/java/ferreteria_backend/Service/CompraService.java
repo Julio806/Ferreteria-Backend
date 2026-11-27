@@ -5,7 +5,7 @@ import ferreteria_backend.Dto.Response.CompraResponse;
 
 import java.time.LocalDate;
 import java.util.List;
-
+//Aplica las reglas que manda ah llamar los repositorios
 public interface CompraService {
 
     CompraResponse crear(CompraRequest request);
