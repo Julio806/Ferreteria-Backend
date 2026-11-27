@@ -13,6 +13,8 @@ public interface ProductoService {
 
     Producto obtenerPorCodigo(String codigo);
 
+    Producto obtenerPorCodigoBarras(String codigoBarras);
+
     List<Producto> obtenerTodos();
 
     List<Producto> obtenerActivos();
